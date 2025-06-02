@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parivahan LLR Test</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!-- Optionally keep custom styles if needed -->
+<!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-cyan-100 min-h-screen dark:from-gray-900 dark:to-gray-800 font-sans">
+<!-- Enhanced with Tailwind -->
+<!-- Instructions Screen -->
+<div id="instructions-screen" class="flex items-center justify-center min-h-screen">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 max-w-xl w-full border border-gray-200 dark:border-gray-700">
+    <h1 class="text-3xl font-bold mb-4 text-blue-700 dark:text-blue-200 text-center">Learner's License Practice Test</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 text-center">Please read the instructions carefully before starting the test</p>
+    <div class="space-y-4 mb-6">
+      <div class="flex items-start space-x-4">
+        <span class="text-2xl">⏰</span>
+        <div>
+          <h2 class="font-semibold text-gray-800 dark:text-gray-100">Time Limit</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">You have 15 minutes to complete the test. The test will automatically submit when the time is up.</p>
+        </div>
+      </div>
+      <div class="flex items-start space-x-4">
+        <span class="text-2xl">✅</span>
+        <div>
+          <h2 class="font-semibold text-gray-800 dark:text-gray-100">Passing Criteria</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">You need to score at least 60% to pass the test. Each question carries equal marks.</p>
+        </div>
+      </div>
+      <div class="flex items-start space-x-4">
+        <span class="text-2xl">ℹ️</span>
+        <div>
+          <h2 class="font-semibold text-gray-800 dark:text-gray-100">Important Notes</h2>
+          <ul class="list-disc pl-5 text-gray-600 dark:text-gray-400 text-sm">
+            <li>You can navigate between questions using the navigation panel</li>
+            <li>You can review and change your answers before final submission</li>
+            <li>Make sure you have a stable internet connection</li>
+            <li>Do not refresh the page during the test</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button id="start-test" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 text-lg">
+      ▶️ Start Test
+    </button>
+  </div>
+</div>
+
+</div>
+<!-- Test Screen -->
+<div id="test-screen" class="hidden min-h-screen flex flex-col">
+  <header class="bg-white dark:bg-gray-900 shadow p-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+  <div class="flex items-center justify-center w-full md:w-auto">
+    <span class="text-2xl mr-2">🚗</span>
+    <span class="text-2xl font-extrabold text-blue-700 dark:text-blue-200 tracking-wide">LLR Test</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-center md:gap-8 w-full md:w-auto">
+    <div id="timer-warning" class="hidden text-xs text-red-600 font-semibold text-center mb-1"></div>
+    <div class="flex justify-center md:justify-end items-center gap-4 w-full">
+      <div class="flex items-center text-gray-700 dark:text-gray-200 text-lg font-semibold bg-blue-100 dark:bg-blue-900 px-4 py-1 rounded-full shadow-sm">
+        <span class="mr-1">⏰</span>
+        <span id="time-left">15:00</span>
+      </div>
+      <div class="text-gray-600 dark:text-gray-300 text-base">Question <span id="current-question">1</span> of <span id="total-questions">3</span></div>
+    </div>
+  </div>
+</header>
+  <main class="flex-1 flex flex-col md:flex-row items-center justify-center gap-10 p-4 md:p-12 max-w-5xl mx-auto w-full min-h-[60vh]">
+    <section class="flex-1 max-w-xl bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col justify-center">
+      <div class="mb-6">
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-4">
+          <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-300" style="width:0%"></div>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900 rounded-xl p-4 mb-4 shadow-sm border border-blue-100 dark:border-blue-800">
+  <h2 id="question-text" class="text-lg font-semibold text-gray-900 dark:text-white"></h2>
+</div>
+        <div id="options-container" class="grid gap-4"></div>
+      </div>
+      <div class="flex justify-between mt-8">
+        <button id="prev-button" class="px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition">← Previous</button>
+        <button id="next-button" class="px-5 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Next →</button>
+      </div>
+    </section>
+    <aside class="w-full md:w-60 bg-blue-50 dark:bg-gray-900 rounded-2xl shadow p-6 flex-shrink-0 flex flex-col items-center">
+      <h3 class="text-lg font-bold text-blue-700 dark:text-blue-200 mb-4">Question Navigator</h3>
+      <div id="navigator-buttons" class="grid grid-cols-5 gap-2"></div>
+    </aside>
+  </main>
+</div>
+
+
+<!-- Results Screen -->
+<div id="results-screen" class="hidden flex items-center justify-center min-h-screen">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 max-w-lg w-full border border-gray-200 dark:border-gray-700 flex flex-col items-center">
+    <h2 class="text-3xl font-bold mb-4 text-green-600 dark:text-green-300">Test Results</h2>
+    <div id="result-icon" class="text-5xl mb-4"></div>
+    <p id="result-message" class="text-lg mb-4 text-gray-700 dark:text-gray-200"></p>
+    <div class="score-details text-center mb-6">
+      <p class="text-xl">Score: <span id="score">0</span> / <span id="total-score">0</span></p>
+      <p class="text-lg">Percentage: <span id="percentage">0</span>%</p>
+    </div>
+    <button onclick="location.reload()" class="w-full py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 text-lg">
+      🏠 Return to Home
+    </button>
+  </div>
+</div>
+
+</div>
+<!-- Custom Alert Modal -->
+<div id="custom-alert-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-xs p-6 text-center">
+    <div id="custom-alert-message" class="text-gray-800 dark:text-gray-100 text-lg font-semibold mb-6">Are you sure?</div>
+    <div class="flex justify-center gap-4">
+      <button id="custom-alert-confirm" class="px-5 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Confirm</button>
+      <button id="custom-alert-cancel" class="px-5 py-2 rounded-lg bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-400 dark:hover:bg-gray-700 transition">Cancel</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
