@@ -58,12 +58,19 @@
             background: linear-gradient(to right, #9333ea, #4f46e5);
         }
         .category-section {
-            padding: 12px;
+            padding: 16px;
             border-radius: 12px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             background: linear-gradient(to bottom right, #e0e7ff, #c7d2fe);
+            min-height: 340px; /* Adjusted for uniform height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distributes content evenly */
+            align-items: center;
             max-width: 350px;
             min-width: 220px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .icon-circle {
             border-radius: 50%;
@@ -84,10 +91,10 @@
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 8px 16px;
-            margin: 5px;
+            padding: 4px 10px;
+            margin: 2px;
             display: inline-block;
-            font-size: 14px;
+            font-size: 12px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             transition: background 0.3s ease;
         }
@@ -110,6 +117,12 @@
         .effective-learn-btn:focus-visible {
             box-shadow: 0 0 0 4px #c4b5fd, 0 6px 32px 0 rgba(147, 51, 234, 0.35);
         }
+        /* Responsive tweaks */
+        @media (max-width: 767px) {
+            .category-section {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -121,20 +134,20 @@
     </header>
     <main class="container mb-5">
         <div class="container px-0">
-            <div class="row g-4 justify-content-center">
+            <div class="row g-3 justify-content-center">
                 <!-- First Row: 2 Categories -->
                 <div class="col-12 col-md-6">
-                    <div class="category-section text-center h-100 d-flex flex-column align-items-center justify-content-between">
+                    <div class="category-section text-center fade-in">
                         <div class="icon-circle d-inline-block mb-3 shine-effect">
                             <div class="fs-2 text-white">🚦</div>
                         </div>
                         <h5 class="fw-bold text-indigo-800 mb-2 text-lg">TRAFFIC SIGNALS</h5>
-                        <p class="text-gray-700 mb-2 text-base">Learn about different traffic signals and their meanings for safe driving.</p>
-                        <div>
+                        <p class="text-gray-700 mb-2 text-base flex-grow-1">Learn about different traffic signals and their meanings for safe driving.</p>
+                        <div class="flex-grow-0">
                             <h6 class="text-indigo-800 mb-2 text-sm">Common Examples:</h6>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Red: Stop</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Yellow: Prepare to Stop</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Green: Go</div>
+                            <div class="example-btn">Red: Stop</div>
+                            <div class="example-btn">Yellow: Prepare to Stop</div>
+                            <div class="example-btn">Green: Go</div>
                         </div>
                         <button class="btn w-100 mt-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white fw-bold px-2 py-1 rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 text-sm tracking-wide effective-learn-btn" aria-label="Learn About Traffic Signals">
                             Learn About Traffic Signals
@@ -142,17 +155,17 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="category-section text-center h-100 d-flex flex-column align-items-center justify-content-between">
+                    <div class="category-section text-center fade-in">
                         <div class="icon-circle d-inline-block mb-3 shine-effect">
                             <div class="fs-2 text-white">⚡</div>
                         </div>
                         <h5 class="fw-bold text-indigo-800 mb-2 text-lg">SPEED LIMITS</h5>
-                        <p class="text-gray-700 mb-2 text-base">Understand speed limits in different areas and road conditions.</p>
-                        <div>
+                        <p class="text-gray-700 mb-2 text-base flex-grow-1">Understand speed limits in different areas and road conditions.</p>
+                        <div class="flex-grow-0">
                             <h6 class="text-indigo-800 mb-2 text-sm">Common Examples:</h6>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Residential: 25 mph</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Highway: 65 mph</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">School Zone: 15 mph</div>
+                            <div class="example-btn">Residential: 25 mph</div>
+                            <div class="example-btn">Highway: 65 mph</div>
+                            <div class="example-btn">School Zone: 15 mph</div>
                         </div>
                         <button class="btn w-100 mt-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white fw-bold px-2 py-1 rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 text-sm tracking-wide effective-learn-btn" aria-label="Learn About Speed Limits">
                             Learn About Speed Limits
@@ -160,20 +173,20 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-4 justify-content-center mt-2">
+            <div class="row g-3 justify-content-center mt-1">
                 <!-- Second Row: 2 Categories -->
                 <div class="col-12 col-md-6">
-                    <div class="category-section text-center h-100 d-flex flex-column align-items-center justify-content-between">
+                    <div class="category-section text-center fade-in">
                         <div class="icon-circle d-inline-block mb-3 shine-effect">
                             <div class="fs-2 text-white">🅿️</div>
                         </div>
                         <h5 class="fw-bold text-indigo-800 mb-2 text-lg">PARKING RULES</h5>
-                        <p class="text-gray-700 mb-2 text-base">Know the rules for parking safely and legally in various situations.</p>
-                        <div>
+                        <p class="text-gray-700 mb-2 text-base flex-grow-1">Know the rules for parking safely and legally in various situations.</p>
+                        <div class="flex-grow-0">
                             <h6 class="text-indigo-800 mb-2 text-sm">Common Examples:</h6>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">No Parking Zone</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Parallel Parking</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Time Limits</div>
+                            <div class="example-btn">No Parking Zone</div>
+                            <div class="example-btn">Parallel Parking</div>
+                            <div class="example-btn">Time Limits</div>
                         </div>
                         <button class="btn w-100 mt-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white fw-bold px-2 py-1 rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 text-sm tracking-wide effective-learn-btn" aria-label="Learn About Parking Rules">
                             Learn About Parking Rules
@@ -181,17 +194,17 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="category-section text-center h-100 d-flex flex-column align-items-center justify-content-between">
+                    <div class="category-section text-center fade-in">
                         <div class="icon-circle d-inline-block mb-3 shine-effect">
                             <div class="fs-2 text-white">↪️</div>
                         </div>
                         <h5 class="fw-bold text-indigo-800 mb-2 text-lg">RIGHT OF WAY</h5>
-                        <p class="text-gray-700 mb-2 text-base">Know when to yield and who has the right of way in various situations.</p>
-                        <div>
+                        <p class="text-gray-700 mb-2 text-base flex-grow-1">Know when to yield and who has the right of way in various situations.</p>
+                        <div class="flex-grow-0">
                             <h6 class="text-indigo-800 mb-2 text-sm">Common Examples:</h6>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Yield to Pedestrians</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Intersection Rules</div>
-                            <div class="example-btn" style="font-size:12px;padding:4px 10px;margin:2px;">Emergency Vehicles</div>
+                            <div class="example-btn">Yield to Pedestrians</div>
+                            <div class="example-btn">Intersection Rules</div>
+                            <div class="example-btn">Emergency Vehicles</div>
                         </div>
                         <button class="btn w-100 mt-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white fw-bold px-2 py-1 rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 text-sm tracking-wide effective-learn-btn" aria-label="Learn About Right of Way">
                             Learn About Right of Way
